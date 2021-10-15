@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% if current_user.is_authenticated %}
+    <h4>Welcome {{ current_user.username }}</h4>
+{% else %}
+    <h4>Welcome, please register using the link at the top if you would like to create your own posts</h4>
+{% endif %}
+
+{% for p in posts %}
+    <div class="card bg-primary text-dark">
+        <div class="card-header">
+        {{ p.title }}
+        </div>
+        <div class="card-body">
+        <blockquote class="blockquote mb-0">
+            <p>{{ p.content }}</p>
+            <footer class="blockquote-footer text-dark">{{ p.author.username }} on <cite title="Source Title">
+                {{ p.date_created.strftime('%A, %b %d, %Y at %I:%M%p') }}
+            </cite></footer>
+        </blockquote>
+        </div>
+    </div>
+{% endfor %}
+
+{% endblock %}

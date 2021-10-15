@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+{% for p in posts %}
+    <div class="card bg-primary text-dark">
+        <div class="card-header">
+        {{ p.title }}
+        </div>
+        <div class="card-body">
+            <blockquote class="blockquote mb-0">
+                <p>{{ p.content }}</p>
+                <footer class="blockquote-footer text-dark">{{ p.author.username }} on <cite title="Source Title">
+                    {{ p.date_created.strftime('%A, %b %d, %Y at %I:%M%p') }}
+                </cite></footer>
+            </blockquote>
+            <a href="{{ url_for('post_detail', post_id=p.id) }}" class="btn btn-success">More Info</a>
+        </div>
+
+    </div>
+{% endfor %}
+
+
+{% endblock content %}

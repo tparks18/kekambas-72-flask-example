@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Update {{ post.title }}</h1>
+<div class="container">
+    <form action="" autocomplete="off" method="post">
+        {{ form.hidden_tag() }}
+        <div class="form-group">
+            <fieldset>
+                {{ form.title.label }}
+                {{ form.title(class='form-control', value=post.title) }}
+            </fieldset>
+            <fieldset>
+                {{ form.content.label }}
+                {{ form.content(class='form-control', value=post.content) }}
+            </fieldset>
+        </div>
+        {{ form.submit(class='btn btn-success', value='Save') }}
+    </form>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="card">
+    <div class="card-header">
+        <h4 class='text-dark'>My Account</h4>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item"><b>Username: </b>{{ current_user.username }}</li>
+      <li class="list-group-item"><b>Email: </b>{{ current_user.email }}</li>
+      <li class="list-group-item">A third item</li>
+    </ul>
+  </div>
+
+{% endblock content %}
